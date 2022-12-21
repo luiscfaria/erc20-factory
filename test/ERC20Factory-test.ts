@@ -1,3 +1,5 @@
+import { Contract } from "ethers";
+
 const {
   time,
   loadFixture,
@@ -5,9 +7,10 @@ const {
 const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
 const { BigNumber } = require("ethers");
+const { ethers } = require("hardhat");
 
 describe("ERC20Factory", function () {
-  let ERC20Factory;
+  let ERC20Factory: Contract;
   let users, owner, addr1, addr2;
 
   before(async () => {
@@ -15,7 +18,6 @@ describe("ERC20Factory", function () {
     owner = users[0];
     addr1 = users[1];
     addr2 = users[2];
-    addr3 = users[3];
   });
 
   beforeEach(async () => {
